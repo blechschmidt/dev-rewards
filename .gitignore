@@ -1,7 +1,6 @@
 .idea
 devreward.csv
 metadata.bin
-metadata.json
 python/__pycache__
 python/output
 test.csv

@@ -405,7 +405,7 @@
                 var progressContainer = document.querySelector(".progress-container");
                 progressContainer.style.display = "block";
         
-                fetch("/metadata.json")
+                fetch("metadata.json")
                     .then(response => {
                         const totalBytes = response.headers.get('content-length');
                         let loadedBytes = 0;
