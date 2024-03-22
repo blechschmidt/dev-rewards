@@ -201,7 +201,6 @@
                         dbOpenRequest.onsuccess = async function (event) {
                             const db = event.target.result;
 
-                            // Create object store
                             const transaction = db.transaction([storeName], "readwrite");
                             const objectStore = transaction.objectStore(storeName);
 
@@ -263,7 +262,12 @@
                         };
 
                         dbOpenRequest.onupgradeneeded = function (event) {
-                            // Handle database upgrade if necessary
+                            const db = event.target.result;
+
+                            // Create object store if not exists
+                            if (!db.objectStoreNames.contains(storeName)) {
+                                db.createObjectStore(storeName);
+                            }
                         };
                     });
                 }
